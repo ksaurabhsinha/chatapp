@@ -24,11 +24,16 @@ class App extends Component {
 
     render() {
         return (
-            <ChannelSection
-                channels={this.state.channels}
-                setChannel={this.setChannel.bind(this)}
-                addChannel={this.addChannel.bind(this)}
-            />
+
+            <div className='app'>
+                <div className='nav'>
+                    <ChannelSection
+                        channels={this.state.channels}
+                        setChannel={this.setChannel.bind(this)}
+                        addChannel={this.addChannel.bind(this)}
+                    />
+                </div>
+            </div>
         )
     }
 }
