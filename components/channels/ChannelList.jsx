@@ -19,4 +19,4 @@ ChannelList.propTypes = {
     setChannel: React.PropTypes.func.isRequired
 };
 
-export default ChannelList;
+export default ChannelList
