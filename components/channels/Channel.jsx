@@ -11,13 +11,11 @@ class Channel extends Component {
     render() {
 
         const {channel, activeChannel} = this.props;
-        const active = activeChannel === channel ? 'active' : '';
+        const active = activeChannel === channel ? 'active list-group-item' : 'list-group-item';
 
         return (
-            <li className={active}>
-                <a onClick={this.onClick.bind(this)}>
-                    {channel.name}
-                </a>
+            <li className={active} onClick={this.onClick.bind(this)}>
+                {channel.name}
             </li>
         )
     }

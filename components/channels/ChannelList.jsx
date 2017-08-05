@@ -5,7 +5,7 @@ class ChannelList extends Component {
 
     render() {
         return (
-            <ul>{
+            <ul className="chats-row nav">{
                 this.props.channels.map(chan => {
                     return <Channel
                         channel={chan}

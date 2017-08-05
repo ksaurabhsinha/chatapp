@@ -26,13 +26,16 @@ class App extends Component {
     render() {
         return (
 
-            <div className='app'>
-                <div className='nav'>
+            <div className='row app'>
+                <div className="col-md-3">
                     <ChannelSection
                         {...this.state}
                         setChannel={this.setChannel.bind(this)}
                         addChannel={this.addChannel.bind(this)}
                     />
+                </div>
+                <div className="col-md-9 current-chat">
+
                 </div>
             </div>
         )

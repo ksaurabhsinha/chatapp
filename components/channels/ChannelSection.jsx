@@ -6,12 +6,9 @@ class ChannelSection extends Component {
     render() {
         return (
 
-            <div className='support panel panel-primary'>
-                <div className='panel-heading'>
-                    <strong>Channels</strong>
-                </div>
-
-                <div className='panel-body channels'>
+            <div className='row'>
+                <div className='col-md-12'>
+                    <h4>Channels</h4>
                     <ChannelList {...this.props} />
                     <ChannelForm {...this.props} />
                 </div>
