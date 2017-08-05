@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ChannelSection from './channels/ChannelSection';
+import ChannelSection from './channels/ChannelSection.jsx';
 
 class App extends Component {
 
@@ -10,8 +10,8 @@ class App extends Component {
         };
     }
 
-    addChannel() {
-        let {channels} = this.state.channels;
+    addChannel(name) {
+        let {channels} = this.state;
         channels.push({id: channels.length, name});
         this.setState({channels});
         // TODO: Send the channel to server
@@ -32,3 +32,5 @@ class App extends Component {
         )
     }
 }
+
+export default App
