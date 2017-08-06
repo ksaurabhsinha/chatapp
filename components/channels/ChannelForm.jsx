@@ -13,7 +13,6 @@ class ChannelForm extends Component {
     render() {
         return (
             <form onSubmit={this.onSubmit.bind(this)}>
-
                 <div className="form-group">
                     <input
                         type=''
@@ -23,8 +22,6 @@ class ChannelForm extends Component {
                         required
                     />
                 </div>
-
-
             </form>
         )
     }

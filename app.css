@@ -1,6 +1,6 @@
 .blue { background: blue }
 .grey { background: grey }
-.chats-row { max-height: 235px; overflow: scroll; }
+.chats-row { max-height: 210px; min-height: 210px; overflow: scroll; }
 
 .list-group-item {
     border: none;

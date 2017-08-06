@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ChannelSection from './channels/ChannelSection.jsx';
+import UserSection from './users/UserSection.jsx';
 
 class App extends Component {
 
@@ -7,7 +8,9 @@ class App extends Component {
         super(props);
         this.state = {
             channels: [],
-            activeChannel: {}
+            activeChannel: {},
+            users: [],
+            acitveUser: {}
         };
     }
 
@@ -23,6 +26,18 @@ class App extends Component {
         // TODO: Get the latest message for this active channel
     }
 
+    addUser(name) {
+        let {users} = this.state;
+        users.push({id: users.length, name});
+        this.setState({users});
+        // TODO: Send the name to the server
+    }
+
+    setUser(activeUser) {
+        this.setState({activeUser});
+        // TODO: Get the lastest message for this active user
+    }
+
     render() {
         return (
 
@@ -33,6 +48,13 @@ class App extends Component {
                         setChannel={this.setChannel.bind(this)}
                         addChannel={this.addChannel.bind(this)}
                     />
+                    
+                    <UserSection
+                        {...this.state}
+                        setUser={this.setUser.bind(this)}
+                        addUser={this.addUser.bind(this)}
+                    />
+
                 </div>
                 <div className="col-md-9 current-chat">
 
