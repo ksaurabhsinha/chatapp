@@ -5,11 +5,11 @@ class UserList extends Component {
     render() {
         return (
             <ul className="chats-row nav">{
-                this.props.users.map(userInfo => {
-                    return <User
-                        user={userInfo}
-                        {...this.props}
-                    />
+                this.props.users.map(user => {
+                    return (<User
+                        key={user.id}
+                        user={user}
+                    />)
                 })
             }
             </ul>
@@ -18,9 +18,7 @@ class UserList extends Component {
 }
 
 UserList.propTypes = {
-    users: React.PropTypes.array.isRequired,
-    setUser: React.PropTypes.func.isRequired,
-    activeUser: React.PropTypes.object.isRequired
+    users: React.PropTypes.array.isRequired
 }
 
 export default UserList

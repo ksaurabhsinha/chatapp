@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ChannelSection from './channels/ChannelSection.jsx';
 import UserSection from './users/UserSection.jsx';
+import MessageSection from "./messages/MessageSection.jsx";
 
 class App extends Component {
 
@@ -10,7 +11,8 @@ class App extends Component {
             channels: [],
             activeChannel: {},
             users: [],
-            acitveUser: {}
+            activeUser: {},
+            messages: [],
         };
     }
 
@@ -26,21 +28,24 @@ class App extends Component {
         // TODO: Get the latest message for this active channel
     }
 
-    addUser(name) {
+    setUserName(name) {
         let {users} = this.state;
         users.push({id: users.length, name});
         this.setState({users});
         // TODO: Send the name to the server
     }
 
-    setUser(activeUser) {
-        this.setState({activeUser});
-        // TODO: Get the lastest message for this active user
+    addMessage(body) {
+        let {messages, users} = this.state;
+        let createdAt = new Date;
+        let author = users.length > 0 ? users[0].name : 'anonymous';
+
+        messages.push({id: messages.length, body, createdAt, author});
+        this.setState({messages});
     }
 
     render() {
         return (
-
             <div className='row app'>
                 <div className="col-md-3">
                     <ChannelSection
@@ -51,14 +56,14 @@ class App extends Component {
                     
                     <UserSection
                         {...this.state}
-                        setUser={this.setUser.bind(this)}
-                        addUser={this.addUser.bind(this)}
+                        setUserName={this.setUserName.bind(this)}
                     />
 
                 </div>
-                <div className="col-md-9 current-chat">
-
-                </div>
+                <MessageSection
+                    {...this.state}
+                    addMessage={this.addMessage.bind(this)}
+                />
             </div>
         )
     }

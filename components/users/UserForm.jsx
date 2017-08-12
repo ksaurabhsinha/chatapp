@@ -6,7 +6,7 @@ class UserForm extends Component {
         e.preventDefault();
         const node = this.refs.user;
         const userName = node.value;
-        this.props.addUser(userName);
+        this.props.setUserName(userName);
         node.value = '';
     }
 
@@ -28,7 +28,7 @@ class UserForm extends Component {
 }
 
 UserForm.propTypes = {
-    addUser: React.PropTypes.func.isRequired
+    setUserName: React.PropTypes.func.isRequired
 }
 
 export default UserForm
